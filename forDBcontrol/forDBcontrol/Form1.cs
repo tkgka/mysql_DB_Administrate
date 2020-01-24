@@ -97,7 +97,7 @@ namespace forDBcontrol
         private void getTablecomboBox()
         {
             
-            comboBox1.Items.Clear();
+            
             Array.Resize(ref eggArr, 10000);
             try
             {
@@ -114,7 +114,7 @@ namespace forDBcontrol
                     while (R.Read())
                     {
                         eggArr[i] = R.GetString(0);
-                        comboBox1.Items.Add(eggArr[i]);
+                        //comboBox1.Items.Add(eggArr[i]);
                         i++;
                         // comboBox1.Items.Add("@" + R.GetString(0));
 
@@ -180,10 +180,14 @@ namespace forDBcontrol
             Dig.Owner = this; // this = form1
             Dig.ShowDialog();//form2 띄우기
             this.data = Dig.db;
-            conn = new MySqlConnection("server=localhost;port=3306;database=" + data + ";uid=root;pwd=root");
-            getTable();
-            MessageBox.Show("DB: " + Dig.db);
-            connection.Text = "DB: " + Dig.db;
+            
+                conn = new MySqlConnection("server=localhost;port=3306;database=" + data + ";uid=root;pwd=root");
+                getTable();
+                MessageBox.Show("DB: " + Dig.db);
+                connection.Text = "DB: " + Dig.db;
+            
+            
+            
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
