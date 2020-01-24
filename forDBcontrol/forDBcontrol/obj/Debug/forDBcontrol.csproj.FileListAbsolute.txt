@@ -1,0 +1,17 @@
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\forDBcontrol.exe.config
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\forDBcontrol.exe
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\forDBcontrol.pdb
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\MySql.Data.dll
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\Google.Protobuf.dll
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\Renci.SshNet.dll
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\bin\Debug\MySql.Data.xml
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.csprojAssemblyReference.cache
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.Form1.resources
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.Properties.Resources.resources
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.csproj.GenerateResource.cache
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.csproj.CoreCompileInputs.cache
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.csproj.CopyComplete
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.exe
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.pdb
+C:\Users\kim\source\repos\forDBcontrol\forDBcontrol\obj\Debug\forDBcontrol.Form2.resources
