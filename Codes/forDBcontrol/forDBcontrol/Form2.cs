@@ -61,7 +61,7 @@ namespace forDBcontrol
         }
 
         public string db;
-        
+        public int check = 0;
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -79,7 +79,7 @@ namespace forDBcontrol
             if (textBox2.Text != "")
             {
                 db = textBox2.Text;
-
+                check = 1;
 
                 Close();//form2 닫기
             }
@@ -94,9 +94,20 @@ namespace forDBcontrol
             textBox2.Text = comboBox1.Text;
         }
 
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Form3 Dig = new Form3();
+            //form3 에서 form2을 참소할 수 있는 참조 저장
 
-        
+            Dig.Owner = this; // this = form2
+            Dig.ShowDialog();//form2 띄우기
 
+
+            getTable();
+            if (Dig.check == 1)
+                textBox2.Text = Dig.TEXT;
+
+        }
     }
     }
 

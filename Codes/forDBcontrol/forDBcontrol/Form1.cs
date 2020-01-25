@@ -180,12 +180,13 @@ namespace forDBcontrol
             Dig.Owner = this; // this = form1
             Dig.ShowDialog();//form2 띄우기
             this.data = Dig.db;
-            
+            if (Dig.check == 1)
+            {
                 conn = new MySqlConnection("server=localhost;port=3306;database=" + data + ";uid=root;pwd=root");
                 getTable();
                 MessageBox.Show("DB: " + Dig.db);
                 connection.Text = "DB: " + Dig.db;
-            
+            }
             
             
         }
