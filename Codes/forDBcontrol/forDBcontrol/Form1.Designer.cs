@@ -40,13 +40,15 @@
             this.Insert_btn = new System.Windows.Forms.Button();
             this.Update_btn = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.UserGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(269, 60);
+            this.comboBox2.Location = new System.Drawing.Point(300, 107);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(145, 23);
             this.comboBox2.TabIndex = 33;
@@ -55,7 +57,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(420, 58);
+            this.button1.Location = new System.Drawing.Point(451, 105);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 27);
             this.button1.TabIndex = 44;
@@ -67,7 +69,7 @@
             // 
             this.connection.AutoSize = true;
             this.connection.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.connection.Location = new System.Drawing.Point(638, 106);
+            this.connection.Location = new System.Drawing.Point(638, 119);
             this.connection.Name = "connection";
             this.connection.Size = new System.Drawing.Size(122, 29);
             this.connection.TabIndex = 63;
@@ -77,7 +79,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(673, 14);
+            this.button4.Location = new System.Drawing.Point(673, 31);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(87, 69);
             this.button4.TabIndex = 62;
@@ -89,7 +91,7 @@
             // 
             this.UserGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.UserGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UserGridView.Location = new System.Drawing.Point(22, 138);
+            this.UserGridView.Location = new System.Drawing.Point(22, 158);
             this.UserGridView.Name = "UserGridView";
             this.UserGridView.RowHeadersWidth = 51;
             this.UserGridView.RowTemplate.Height = 27;
@@ -103,7 +105,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(116, 102);
+            this.label3.Location = new System.Drawing.Point(109, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 60;
@@ -113,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(116, 63);
+            this.label2.Location = new System.Drawing.Point(109, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 59;
@@ -123,7 +125,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(116, 25);
+            this.label1.Location = new System.Drawing.Point(109, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 20);
             this.label1.TabIndex = 58;
@@ -133,7 +135,7 @@
             // 
             this.Delete_btn.BackColor = System.Drawing.Color.White;
             this.Delete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Delete_btn.Location = new System.Drawing.Point(22, 90);
+            this.Delete_btn.Location = new System.Drawing.Point(15, 100);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(88, 32);
             this.Delete_btn.TabIndex = 57;
@@ -145,7 +147,7 @@
             // 
             this.Insert_btn.BackColor = System.Drawing.Color.White;
             this.Insert_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Insert_btn.Location = new System.Drawing.Point(22, 52);
+            this.Insert_btn.Location = new System.Drawing.Point(15, 62);
             this.Insert_btn.Name = "Insert_btn";
             this.Insert_btn.Size = new System.Drawing.Size(88, 32);
             this.Insert_btn.TabIndex = 56;
@@ -157,7 +159,7 @@
             // 
             this.Update_btn.BackColor = System.Drawing.Color.White;
             this.Update_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Update_btn.Location = new System.Drawing.Point(22, 14);
+            this.Update_btn.Location = new System.Drawing.Point(15, 24);
             this.Update_btn.Name = "Update_btn";
             this.Update_btn.Size = new System.Drawing.Size(88, 32);
             this.Update_btn.TabIndex = 55;
@@ -165,26 +167,38 @@
             this.Update_btn.UseVisualStyleBackColor = false;
             this.Update_btn.Click += new System.EventHandler(this.Update_btn_Click_1);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Delete_btn);
+            this.groupBox1.Controls.Add(this.Update_btn);
+            this.groupBox1.Controls.Add(this.Insert_btn);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(22, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(207, 145);
+            this.groupBox1.TabIndex = 64;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "function";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 505);
+            this.ClientSize = new System.Drawing.Size(782, 523);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.connection);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.UserGridView);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Delete_btn);
-            this.Controls.Add(this.Insert_btn);
-            this.Controls.Add(this.Update_btn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox2);
             this.Name = "Form1";
             this.Text = "main";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,6 +217,7 @@
         private System.Windows.Forms.Button Insert_btn;
         private System.Windows.Forms.Button Update_btn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
