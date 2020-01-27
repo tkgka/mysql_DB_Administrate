@@ -100,7 +100,10 @@ namespace forDBcontrol
                             TEXT = Text;
                             R.Dispose();
                             conn.Close();
-                            MessageBox.Show("DB 제거됨");
+                            DialogResult result = MessageBox.Show("제거 하시겠습니까?", "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            
+                                MessageBox.Show("DB 제거됨");
+                            
                             check = 1;
                         }
                         catch (Exception E)
@@ -128,6 +131,11 @@ namespace forDBcontrol
         {
             CREATEDB(textBox1.Text);
             Close();
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = comboBox1.Text;
         }
     }
 }
