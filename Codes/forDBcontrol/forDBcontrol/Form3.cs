@@ -14,11 +14,28 @@ namespace forDBcontrol
     public partial class Form3 : Form
     {
         MySqlConnection conn;
-        
+        MySqlDataAdapter dataAdapter;
+        DataSet dataSet;
         public Form3()
         {
             InitializeComponent();
         }
+
+        private void data_dont_exist(string select, string a)
+        {
+            dataSet.Clear();
+            try
+            {
+                dataAdapter = new MySqlDataAdapter(select, conn);
+                dataAdapter.Fill(dataSet, a);
+                
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+        }
+
 
 
         private void getTable()
@@ -125,6 +142,7 @@ namespace forDBcontrol
         private void Form3_Load(object sender, EventArgs e)
         {
             getTable();
+            dataSet = new DataSet();
             
             
         }
@@ -138,6 +156,11 @@ namespace forDBcontrol
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Text = comboBox1.Text;
+        }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
