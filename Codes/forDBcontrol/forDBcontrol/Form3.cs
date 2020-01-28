@@ -78,8 +78,8 @@ namespace forDBcontrol
         private void getPrimary()
         {
             comboBox2.Items.Clear();
-            
-           for(int i = 0; i < UserGridView.Rows.Count - 1; i++)
+            comboBox2.Text = UserGridView.Rows[0].Cells[0].FormattedValue.ToString();
+           for (int i = 0; i < UserGridView.Rows.Count - 1; i++)
             {
                 comboBox2.Items.Add(UserGridView.Rows[i].Cells[0].FormattedValue.ToString());
             }
@@ -99,7 +99,7 @@ namespace forDBcontrol
                     conn.Open();
                     //string strqry = "select table_name from information_schema.tables where TABLE_SCHEMA='GSM'";
                     string strqry = "CREATE DATABASE "+Text;
-
+                    
                     MySqlCommand cmd = new MySqlCommand(strqry, conn);
                     cmd.CommandType = CommandType.Text;
                     MySqlDataReader R = cmd.ExecuteReader();
@@ -120,8 +120,11 @@ namespace forDBcontrol
                             conn = new MySqlConnection("server=localhost;port=3306;uid=root;pwd=root");
                             conn.Open();
                             //string strqry = "select table_name from information_schema.tables where TABLE_SCHEMA='GSM'";
-                            string strqry = "DROP DATABASE " + Text;
-
+                            DialogResult result = MessageBox.Show("제거 하시겠습니까?", "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                string strqry = "DROP DATABASE " + Text;
+                            
                             MySqlCommand cmd = new MySqlCommand(strqry, conn);
                             cmd.CommandType = CommandType.Text;
                             MySqlDataReader R = cmd.ExecuteReader();
@@ -129,10 +132,15 @@ namespace forDBcontrol
                             TEXT = Text;
                             R.Dispose();
                             conn.Close();
-                            DialogResult result = MessageBox.Show("제거 하시겠습니까?", "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            
                                 MessageBox.Show("DB 제거됨");
-                            
+                            }
+                           
+                            else
+                            {
+                                MessageBox.Show("취소됨");
+                            }
+
+
                             check = 1;
                         }
                         catch (Exception E)
@@ -148,7 +156,62 @@ namespace forDBcontrol
             }
         }
 
+        private void create_Table(string Text,string contents)
+        {
+            try
+            {
+                conn = new MySqlConnection("server=localhost;port=3306;database=" + Text + ";uid=root;pwd=root");
+                conn.Open();
+                //string strqry = "select table_name from information_schema.tables where TABLE_SCHEMA='GSM'";
+                string strqry = "CREATE TABLE `" + textBox2.Text + "` (" + contents + ");";
 
+                MySqlCommand cmd = new MySqlCommand(strqry, conn);
+                cmd.CommandType = CommandType.Text;
+                MySqlDataReader R = cmd.ExecuteReader();
+
+                TEXT = Text;
+                R.Dispose();
+                conn.Close();
+                MessageBox.Show("Table 생성됨");
+                check = 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                if (ex.Message == "Can't create database '" + Text + "'; database exists")
+                {
+                    try
+                    {
+                        conn = new MySqlConnection("server=localhost;port=3306;uid=root;pwd=root");
+                        conn.Open();
+                        //string strqry = "select table_name from information_schema.tables where TABLE_SCHEMA='GSM'";
+                        string strqry = "DROP DATABASE " + Text;
+
+                        MySqlCommand cmd = new MySqlCommand(strqry, conn);
+                        cmd.CommandType = CommandType.Text;
+                        MySqlDataReader R = cmd.ExecuteReader();
+
+                        TEXT = Text;
+                        R.Dispose();
+                        conn.Close();
+                        DialogResult result = MessageBox.Show("제거 하시겠습니까?", "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        MessageBox.Show("DB 제거됨");
+
+                        check = 1;
+                    }
+                    catch (Exception E)
+                    {
+                        MessageBox.Show(E.Message);
+                    }
+
+                }
+
+
+            }
+
+            
+        }
 
             
         private void Form3_Load(object sender, EventArgs e)
@@ -171,7 +234,7 @@ namespace forDBcontrol
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            CREATEDB(textBox1.Text);
+            
             string text = "";
             //text = UserGridView[1 , 0].Value + "";
 
@@ -180,6 +243,7 @@ namespace forDBcontrol
             {
                 text += "`"+UserGridView.Rows[i].Cells[0].FormattedValue.ToString()+"` ";
                 text += UserGridView.Rows[i].Cells[1].FormattedValue.ToString() + " ";
+                text += " COLLATE utf8_bin ";
                 if ((UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "NO") || (UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "no"))
                 {
                     text += "NOT NULL,";
@@ -190,7 +254,16 @@ namespace forDBcontrol
                 }
             }
             text += "PRIMARY KEY (`"+comboBox2.Text+"`)";
-            MessageBox.Show(text);
+            if(TableRadio.Checked)
+            {
+                create_Table(textBox1.Text, text);
+            }
+            else if (DBradio.Checked)
+            {
+                CREATEDB(textBox1.Text);
+            }
+            
+            //MessageBox.Show(text);
             
 
             Close();
