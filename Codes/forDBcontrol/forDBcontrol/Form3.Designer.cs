@@ -111,14 +111,14 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(98, 2);
+            this.comboBox2.Location = new System.Drawing.Point(98, 0);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 23);
             this.comboBox2.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(80, 175);
+            this.textBox2.Location = new System.Drawing.Point(80, 152);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(103, 25);
             this.textBox2.TabIndex = 3;
@@ -128,12 +128,12 @@
             // 
             this.groupBox3.Controls.Add(this.TableRadio);
             this.groupBox3.Controls.Add(this.DBradio);
-            this.groupBox3.Location = new System.Drawing.Point(12, 206);
+            this.groupBox3.Location = new System.Drawing.Point(12, 183);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(260, 52);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Function";
             // 
             // DBradio
             // 
