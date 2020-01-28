@@ -125,6 +125,8 @@ namespace forDBcontrol
         private void Form3_Load(object sender, EventArgs e)
         {
             getTable();
+            
+            
         }
 
         private void Button1_Click(object sender, EventArgs e)
