@@ -23,19 +23,20 @@ namespace forDBcontrol
 
         private void data_dont_exist(string select, string a)
         {
+            conn = new MySqlConnection("server=localhost;port=3306;database=" + comboBox1.Text + ";uid=root;pwd=root");
             dataSet.Clear();
             try
             {
                 dataAdapter = new MySqlDataAdapter(select, conn);
                 dataAdapter.Fill(dataSet, a);
-                
+                UserGridView.DataSource = dataSet.Tables[a];
             }
             catch (Exception E)
             {
                 MessageBox.Show(E.Message);
             }
         }
-
+        public int count = 0;
 
 
         private void getTable()
@@ -58,7 +59,7 @@ namespace forDBcontrol
                     {
                         comboBox1.Items.Add(R.GetString(0));
                         // comboBox1.Items.Add("@" + R.GetString(0));
-
+                        count += 1;
                     }
                 }
                 else
@@ -138,28 +139,61 @@ namespace forDBcontrol
 
 
 
-
+            
         private void Form3_Load(object sender, EventArgs e)
         {
             getTable();
             dataSet = new DataSet();
-            
-            
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Field", typeof(string));
+            table.Columns.Add("Type", typeof(string));
+            table.Columns.Add("Nullable", typeof(string));
+
+            UserGridView.DataSource = table;
+
+
+            // column을 추가합니다.
+
+            UserGridView.Visible = true;
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             CREATEDB(textBox1.Text);
+            string text = "";
+            text = UserGridView[1 , 0].Value + "";
+            
+
+
             Close();
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Text = comboBox1.Text;
+            
+            string Table = "user";
+           string sel = "desc "+Table;
+            MessageBox.Show(comboBox2.Text + " Table 선택됨");
+            data_dont_exist(sel, Table);
+
         }
 
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Field", typeof(string));
+            table.Columns.Add("Type", typeof(string));
+            table.Columns.Add("Nullable", typeof(string));
+            UserGridView.DataSource = table;
+
 
         }
     }
