@@ -101,6 +101,7 @@
             this.UserGridView.Size = new System.Drawing.Size(405, 275);
             this.UserGridView.TabIndex = 62;
             this.UserGridView.Visible = false;
+            this.UserGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserGridView_CellValueChanged);
             // 
             // comboBox2
             // 

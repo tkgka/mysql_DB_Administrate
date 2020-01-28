@@ -75,6 +75,17 @@ namespace forDBcontrol
                 MessageBox.Show(ex.Message);
             }
         }
+        private void getPrimary()
+        {
+            comboBox2.Items.Clear();
+            
+           for(int i = 0; i < UserGridView.Rows.Count - 1; i++)
+            {
+                comboBox2.Items.Add(UserGridView.Rows[i].Cells[0].FormattedValue.ToString());
+            }
+            
+        }
+
         public string TEXT;
         public int check = 0;
 
@@ -211,6 +222,15 @@ namespace forDBcontrol
             UserGridView.DataSource = table;
 
 
+        }
+
+        private void UserGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int count = 0 ;
+            if(UserGridView.Rows.Count > count)
+            {
+                getPrimary();
+            }
         }
     }
 }
