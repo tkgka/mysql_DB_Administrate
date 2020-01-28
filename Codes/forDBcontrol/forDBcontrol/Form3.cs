@@ -162,9 +162,25 @@ namespace forDBcontrol
         {
             CREATEDB(textBox1.Text);
             string text = "";
-            text = UserGridView[1 , 0].Value + "";
-            
+            //text = UserGridView[1 , 0].Value + "";
 
+
+            for (int i = 0; i < UserGridView.Rows.Count-1; i++)
+            {
+                text += "`"+UserGridView.Rows[i].Cells[0].FormattedValue.ToString()+"` ";
+                text += UserGridView.Rows[i].Cells[1].FormattedValue.ToString() + " ";
+                if ((UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "NO") || (UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "no"))
+                {
+                    text += "NOT NULL,";
+                }
+                else
+                {
+                   text += ",";
+                }
+            }
+            text += "PRIMARY KEY (`"+comboBox2.Text+"`)";
+            MessageBox.Show(text);
+            
 
             Close();
         }
