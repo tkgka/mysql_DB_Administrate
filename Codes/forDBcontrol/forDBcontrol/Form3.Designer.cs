@@ -37,8 +37,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.DBradio = new System.Windows.Forms.RadioButton();
             this.TableRadio = new System.Windows.Forms.RadioButton();
+            this.DBradio = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserGridView)).BeginInit();
@@ -55,9 +56,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(71, 272);
+            this.button1.Location = new System.Drawing.Point(71, 278);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 46);
+            this.button1.Size = new System.Drawing.Size(121, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "확인";
             this.button1.UseVisualStyleBackColor = true;
@@ -118,33 +119,24 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(80, 152);
+            this.textBox2.Location = new System.Drawing.Point(73, 64);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(103, 25);
+            this.textBox2.Size = new System.Drawing.Size(108, 25);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "Table_Name";
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.TableRadio);
+            this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.DBradio);
-            this.groupBox3.Location = new System.Drawing.Point(12, 183);
+            this.groupBox3.Location = new System.Drawing.Point(12, 166);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(260, 52);
+            this.groupBox3.Size = new System.Drawing.Size(260, 106);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Function";
-            // 
-            // DBradio
-            // 
-            this.DBradio.AutoSize = true;
-            this.DBradio.Location = new System.Drawing.Point(7, 27);
-            this.DBradio.Name = "DBradio";
-            this.DBradio.Size = new System.Drawing.Size(119, 19);
-            this.DBradio.TabIndex = 0;
-            this.DBradio.TabStop = true;
-            this.DBradio.Text = "DB 추가/삭제";
-            this.DBradio.UseVisualStyleBackColor = true;
             // 
             // TableRadio
             // 
@@ -157,13 +149,33 @@
             this.TableRadio.Text = "Table 추가/삭제";
             this.TableRadio.UseVisualStyleBackColor = true;
             // 
+            // DBradio
+            // 
+            this.DBradio.AutoSize = true;
+            this.DBradio.Location = new System.Drawing.Point(7, 27);
+            this.DBradio.Name = "DBradio";
+            this.DBradio.Size = new System.Drawing.Size(119, 19);
+            this.DBradio.TabIndex = 0;
+            this.DBradio.TabStop = true;
+            this.DBradio.Text = "DB 추가/삭제";
+            this.DBradio.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 12F);
+            this.label1.Location = new System.Drawing.Point(4, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Table :";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 336);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -177,7 +189,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -194,5 +205,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton TableRadio;
         private System.Windows.Forms.RadioButton DBradio;
+        private System.Windows.Forms.Label label1;
     }
 }

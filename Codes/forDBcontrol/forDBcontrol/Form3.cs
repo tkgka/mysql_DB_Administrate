@@ -33,7 +33,7 @@ namespace forDBcontrol
             }
             catch (Exception E)
             {
-                MessageBox.Show(E.Message);
+                //MessageBox.Show(E.Message);
             }
         }
         public int count = 0;
@@ -178,26 +178,34 @@ namespace forDBcontrol
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                if (ex.Message == "Can't create database '" + Text + "'; database exists")
+                if (ex.Message == "Table '"+textBox2.Text+"' already exists")
                 {
                     try
                     {
-                        conn = new MySqlConnection("server=localhost;port=3306;uid=root;pwd=root");
+                        conn = new MySqlConnection("server=localhost;port=3306;database=" + Text + ";uid=root;pwd=root");
                         conn.Open();
                         //string strqry = "select table_name from information_schema.tables where TABLE_SCHEMA='GSM'";
-                        string strqry = "DROP DATABASE " + Text;
 
-                        MySqlCommand cmd = new MySqlCommand(strqry, conn);
-                        cmd.CommandType = CommandType.Text;
-                        MySqlDataReader R = cmd.ExecuteReader();
-
-                        TEXT = Text;
-                        R.Dispose();
-                        conn.Close();
                         DialogResult result = MessageBox.Show("제거 하시겠습니까?", "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            string strqry = "DROP TABLE " + textBox2.Text;
 
-                        MessageBox.Show("DB 제거됨");
+                            MySqlCommand cmd = new MySqlCommand(strqry, conn);
+                            cmd.CommandType = CommandType.Text;
+                            MySqlDataReader R = cmd.ExecuteReader();
 
+                            TEXT = Text;
+                            R.Dispose();
+                            conn.Close();
+
+
+                            MessageBox.Show("table 제거됨");
+                        }
+                        else
+                        {
+                            MessageBox.Show("취소됨");
+                        }
                         check = 1;
                     }
                     catch (Exception E)
@@ -234,48 +242,52 @@ namespace forDBcontrol
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            
-            string text = "";
-            //text = UserGridView[1 , 0].Value + "";
+            if ((textBox2.Text !="") && (DBradio.Checked) || (textBox2.Text != "") && (TableRadio.Checked)) {
+                string text = "";
+                //text = UserGridView[1 , 0].Value + "";
 
 
-            for (int i = 0; i < UserGridView.Rows.Count-1; i++)
-            {
-                text += "`"+UserGridView.Rows[i].Cells[0].FormattedValue.ToString()+"` ";
-                text += UserGridView.Rows[i].Cells[1].FormattedValue.ToString() + " ";
-                text += " COLLATE utf8_bin ";
-                if ((UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "NO") || (UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "no"))
+                for (int i = 0; i < UserGridView.Rows.Count - 1; i++)
                 {
-                    text += "NOT NULL,";
+                    text += "`" + UserGridView.Rows[i].Cells[0].FormattedValue.ToString() + "` ";
+                    text += UserGridView.Rows[i].Cells[1].FormattedValue.ToString() + " ";
+                    text += " COLLATE utf8_bin ";
+                    if ((UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "NO") || (UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "no"))
+                    {
+                        text += "NOT NULL,";
+                    }else
+                    {
+                        text += ",";
+                    }
                 }
-                else
+                text += "PRIMARY KEY (`" + comboBox2.Text + "`)";
+                if (TableRadio.Checked)
                 {
-                   text += ",";
+                    create_Table(textBox1.Text, text);
                 }
-            }
-            text += "PRIMARY KEY (`"+comboBox2.Text+"`)";
-            if(TableRadio.Checked)
-            {
-                create_Table(textBox1.Text, text);
-            }
-            else if (DBradio.Checked)
-            {
-                CREATEDB(textBox1.Text);
-            }
-            
-            //MessageBox.Show(text);
-            
+                else if (DBradio.Checked)
+                {
+                    CREATEDB(textBox1.Text);
+                }
 
-            Close();
+                //MessageBox.Show(text);
+
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("모든 조건을 입력하세요");
+            }
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Text = comboBox1.Text;
-            
-            string Table = "user";
-           string sel = "desc "+Table;
-            MessageBox.Show(comboBox2.Text + " Table 선택됨");
+
+            string Table = textBox2.Text;
+            string sel = "desc " + Table;
+
             data_dont_exist(sel, Table);
 
         }
@@ -299,11 +311,34 @@ namespace forDBcontrol
 
         private void UserGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            int count = 0 ;
-            if(UserGridView.Rows.Count > count)
+            
+            if(UserGridView.Rows.Count > 0)
             {
                 getPrimary();
             }
+
+            if ((UserGridView.Rows[e.RowIndex].Cells[2].FormattedValue.ToString() != "NO") && (UserGridView.Rows[e.RowIndex].Cells[2].FormattedValue.ToString() != "no"))
+            {
+                UserGridView.Rows[e.RowIndex].Cells[2].Value = "yes";
+            }
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Field", typeof(string));
+            table.Columns.Add("Type", typeof(string));
+            table.Columns.Add("Nullable", typeof(string));
+            UserGridView.DataSource = table;
+
+
+
+            
+
+            string Table = textBox2.Text;
+            string sel = "desc " + Table;
+            
+            data_dont_exist(sel, Table);
         }
     }
 }
