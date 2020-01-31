@@ -270,6 +270,9 @@ namespace forDBcontrol
                     CREATEDB(textBox1.Text);
                 }
 
+
+
+
                 //MessageBox.Show(text);
 
 
