@@ -234,10 +234,17 @@ namespace forDBcontrol
 
             UserGridView.DataSource = table;
 
+            DataTable Foreign = new DataTable();
+            Foreign.Columns.Add("ForeignKey", typeof(string));
+            Foreign.Columns.Add("REFERENCES", typeof(string));
+            Foreign.Columns.Add("column", typeof(string));
+
+            ForeignGridView.DataSource = Foreign;
+
 
             // column을 추가합니다.
 
-            UserGridView.Visible = true;
+            
         }
 
         private void Button1_Click(object sender, EventArgs e)

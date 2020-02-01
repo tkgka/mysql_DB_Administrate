@@ -37,13 +37,15 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TableRadio = new System.Windows.Forms.RadioButton();
             this.DBradio = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ForeignGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ForeignGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -56,7 +58,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(71, 278);
+            this.button1.Location = new System.Drawing.Point(79, 343);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 40);
             this.button1.TabIndex = 1;
@@ -77,7 +79,7 @@
             // 
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 14);
+            this.groupBox1.Location = new System.Drawing.Point(12, 43);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(257, 127);
             this.groupBox1.TabIndex = 3;
@@ -86,11 +88,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ForeignGridView);
             this.groupBox2.Controls.Add(this.UserGridView);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(282, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(417, 312);
+            this.groupBox2.Size = new System.Drawing.Size(546, 400);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "primary Key";
@@ -104,9 +107,8 @@
             this.UserGridView.RowHeadersWidth = 51;
             this.UserGridView.RowTemplate.Height = 27;
             this.UserGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.UserGridView.Size = new System.Drawing.Size(405, 275);
+            this.UserGridView.Size = new System.Drawing.Size(529, 275);
             this.UserGridView.TabIndex = 62;
-            this.UserGridView.Visible = false;
             this.UserGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserGridView_CellValueChanged);
             // 
             // comboBox2
@@ -131,12 +133,22 @@
             this.groupBox3.Controls.Add(this.TableRadio);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.DBradio);
-            this.groupBox3.Location = new System.Drawing.Point(12, 166);
+            this.groupBox3.Location = new System.Drawing.Point(12, 195);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(260, 106);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Function";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 12F);
+            this.label1.Location = new System.Drawing.Point(4, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Table :";
             // 
             // TableRadio
             // 
@@ -160,21 +172,23 @@
             this.DBradio.Text = "DB 추가/삭제";
             this.DBradio.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // ForeignGridView
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F);
-            this.label1.Location = new System.Drawing.Point(4, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Table :";
+            this.ForeignGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ForeignGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ForeignGridView.Location = new System.Drawing.Point(6, 307);
+            this.ForeignGridView.Name = "ForeignGridView";
+            this.ForeignGridView.RowHeadersWidth = 51;
+            this.ForeignGridView.RowTemplate.Height = 27;
+            this.ForeignGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ForeignGridView.Size = new System.Drawing.Size(529, 86);
+            this.ForeignGridView.TabIndex = 63;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 336);
+            this.ClientSize = new System.Drawing.Size(840, 419);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -188,6 +202,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ForeignGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,5 +221,6 @@
         private System.Windows.Forms.RadioButton TableRadio;
         private System.Windows.Forms.RadioButton DBradio;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView ForeignGridView;
     }
 }
