@@ -249,7 +249,7 @@ namespace forDBcontrol
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if ((textBox2.Text !="") && (DBradio.Checked) || (textBox2.Text != "") && (TableRadio.Checked)) {
+            if ((DBradio.Checked) || (textBox2.Text != "") && (TableRadio.Checked)) {
                 string text = "";
                 //text = UserGridView[1 , 0].Value + "";
 

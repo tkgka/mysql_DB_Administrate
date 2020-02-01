@@ -97,7 +97,7 @@
             this.Controls.Add(this.connection);
             this.Controls.Add(this.textBox2);
             this.Name = "Form2";
-            this.Text = "DB설정";
+            this.Text = "DB_Select";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
