@@ -328,20 +328,25 @@ namespace forDBcontrol
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
-            table.Columns.Add("Field", typeof(string));
-            table.Columns.Add("Type", typeof(string));
-            table.Columns.Add("Nullable", typeof(string));
-            UserGridView.DataSource = table;
-
-
 
             
-
-            string Table = textBox2.Text;
-            string sel = "desc " + Table;
             
-            data_dont_exist(sel, Table);
+            if ((UserGridView.Rows[0].Cells[0].FormattedValue.ToString() == "") || (UserGridView.Columns.Count > 5))
+            {
+                
+                
+                DataTable table = new DataTable();
+                table.Columns.Add("Field", typeof(string));
+                table.Columns.Add("Type", typeof(string));
+                table.Columns.Add("Nullable", typeof(string));
+                UserGridView.DataSource = table;
+
+
+                string Table = textBox2.Text;
+                string sel = "desc " + Table;
+
+                data_dont_exist(sel, Table);
+            }
         }
     }
 }
