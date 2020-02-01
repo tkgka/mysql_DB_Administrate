@@ -137,6 +137,7 @@ namespace forDBcontrol
                            
                             else
                             {
+
                                 MessageBox.Show("취소됨");
                             }
 
