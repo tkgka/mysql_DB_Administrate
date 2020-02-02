@@ -75,7 +75,7 @@ namespace forDBcontrol
                 MessageBox.Show(ex.Message);
             }
         }
-        private void getPrimary()
+        private void getPrimary() 
         {
             comboBox2.Items.Clear();
             comboBox2.Text = UserGridView.Rows[0].Cells[0].FormattedValue.ToString();
@@ -137,7 +137,6 @@ namespace forDBcontrol
                            
                             else
                             {
-
                                 MessageBox.Show("취소됨");
                             }
 
