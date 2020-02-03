@@ -282,8 +282,11 @@ namespace forDBcontrol
 
                 //MessageBox.Show(text);
 
-
-                Close();
+                DialogResult result = MessageBox.Show("창을 닫으시겠습니까?", "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Close();
+                }
             }
             else
             {
