@@ -262,12 +262,23 @@ namespace forDBcontrol
                     if ((UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "NO") || (UserGridView.Rows[i].Cells[2].FormattedValue.ToString() == "no"))
                     {
                         text += "NOT NULL,";
-                    }else
+                    } else
                     {
                         text += ",";
                     }
                 }
                 text += "PRIMARY KEY (`" + comboBox2.Text + "`)";
+
+                if (ForeignGridView.Rows[0].Cells[0].FormattedValue.ToString() != "") { 
+                    for (int i = 0; i < ForeignGridView.Rows.Count - 1; i++){
+                           text += ", foreign key (`" + ForeignGridView.Rows[i].Cells[0].FormattedValue.ToString() + "`) references "
+                            + ForeignGridView.Rows[i].Cells[1].FormattedValue.ToString() + " (`" + ForeignGridView.Rows[i].Cells[2].FormattedValue.ToString() + "`)";
+                        }
+
+                    MessageBox.Show(text);
+                }
+
+
                 if (TableRadio.Checked)
                 {
                     create_Table(textBox1.Text, text);
