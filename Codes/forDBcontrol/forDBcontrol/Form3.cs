@@ -275,7 +275,7 @@ namespace forDBcontrol
                             + ForeignGridView.Rows[i].Cells[1].FormattedValue.ToString() + " (`" + ForeignGridView.Rows[i].Cells[2].FormattedValue.ToString() + "`)";
                         }
 
-                    MessageBox.Show(text);
+                 //   MessageBox.Show(text);
                 }
 
 
