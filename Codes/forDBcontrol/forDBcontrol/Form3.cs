@@ -298,6 +298,23 @@ namespace forDBcontrol
                 {
                     Close();
                 }
+                else
+                {
+                    DataTable table = new DataTable();
+                    table.Columns.Add("Field", typeof(string));
+                    table.Columns.Add("Type", typeof(string));
+                    table.Columns.Add("Nullable", typeof(string));
+
+                    UserGridView.DataSource = table;
+
+                    DataTable Foreign = new DataTable();
+                    Foreign.Columns.Add("ForeignKey", typeof(string));
+                    Foreign.Columns.Add("REFERENCES", typeof(string));
+                    Foreign.Columns.Add("column", typeof(string));
+
+                    ForeignGridView.DataSource = Foreign;
+
+                }
             }
             else
             {
@@ -330,7 +347,12 @@ namespace forDBcontrol
             table.Columns.Add("Nullable", typeof(string));
             UserGridView.DataSource = table;
 
+            DataTable Foreign = new DataTable();
+            Foreign.Columns.Add("ForeignKey", typeof(string));
+            Foreign.Columns.Add("REFERENCES", typeof(string));
+            Foreign.Columns.Add("column", typeof(string));
 
+            ForeignGridView.DataSource = Foreign;
         }
 
         private void UserGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
