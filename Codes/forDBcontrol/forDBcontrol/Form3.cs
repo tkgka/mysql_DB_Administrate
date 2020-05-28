@@ -129,7 +129,7 @@ namespace forDBcontrol
                             cmd.CommandType = CommandType.Text;
                             MySqlDataReader R = cmd.ExecuteReader();
 
-                            TEXT = Text;
+                            //TEXT = Text;
                             R.Dispose();
                             conn.Close();
                                 MessageBox.Show("DB 제거됨");
